@@ -24,7 +24,8 @@ const claimsEnricherService = new ClaimsEnricherService()
 
 
 server.addService(claimsEnrichProto.ClaimsEnricherService.service, {
-    enrichClaim: claimsEnricherService.enrichClaim
+    enrichClaim: claimsEnricherService.enrichClaim,
+    saveClaim: claimsEnricherService.saveClaim
 });
 
 server.bindAsync(

@@ -6,11 +6,21 @@ message Claim {
     bool verified = 3;
 }
 
+message SaveClaim {
+    int64 orgID = 1;
+    int64 uniqueID = 2;
+    string claimName = 3;
+    bool verified = 4;
+}
+
 service ClaimsEnricherService {
     rpc enrichClaim (ClaimQuery) returns (Claim) {}
+    rpc saveClaim (SaveClaim) returns (EmptyResponse) {}
 }
 
 message ClaimQuery {
     int64 orgID = 1;
     int64 uniqueID = 2;
 }
+
+message EmptyResponse {}

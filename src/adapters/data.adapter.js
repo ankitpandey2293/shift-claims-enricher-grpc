@@ -30,6 +30,23 @@ const OperationMap = {
                 }
             })
         }
+    },
+    insertOne: (orgID, uniqueID, claimName, verified) => {
+        return {
+            method: 'post',
+            url: 'https://data.mongodb-api.com/app/data-aqora/endpoint/data/beta/action/insertOne',
+            headers: config.headers,
+            data: JSON.stringify({
+                collection: config.collection,
+                database: `org${orgID}_claims`,
+                dataSource: config.dataSource,
+                document: {
+                    uniqueID,
+                    claimName,
+                    verified
+                }
+            })
+        }
     }
 }
 
@@ -42,6 +59,12 @@ class DataAdapter {
         const { data } = await axios(OperationMap.findOne(orgID, parseInt(uniqueID)))
         if (data && !data.document) throw new Error('Claim Not Found')
         return data.document
+    }
+
+    async saveClaim(orgID, uniqueID, claimName, verified) {
+        const { data } = await axios(OperationMap.insertOne(orgID, parseInt(uniqueID), claimName, verified))
+        if (data && !data.insertedId) throw new Error('Claim already exists')
+        return data.insertedId
     }
 }
 
