@@ -8,15 +8,17 @@ This service will be behind http2 load balancer either on nginx or envoy
 [3] Respond with updated Claim data or grpc.INVAID_DATA error
 
 ## Setup ENV
-URI={GRPC_SERVER_URI} default 127.0.0.1:50051
+```URI={GRPC_SERVER_URI} default 127.0.0.1:50051```
 
-REDIS_URI={REDIS_HOST_URI} default 'redis://:92bmwmvtwma7hpdb3tjzgbdcntfkmmgz@swift-hemlock-0772066f5b.redisgreen.net:11042/'
+```REDIS_URI={REDIS_HOST_URI} default 'redis://:92bmwmvtwma7hpdb3tjzgbdcntfkmmgz@swift-hemlock-0772066f5b.redisgreen.net:11042/'```
 
-DATA_API_KEY={DATA_API_KEY} default '8wv2geCjMXCAKAmL9vUSoaiXDOVZ2t2mz5EZHRhUPVxnUH9jo1gyRtR4yFAQV2DD'
+```DATA_API_KEY={DATA_API_KEY} default '8wv2geCjMXCAKAmL9vUSoaiXDOVZ2t2mz5EZHRhUPVxnUH9jo1gyRtR4yFAQV2DD'```
 
 ## Starting the application
+```
 npm i
 npm run start
+```
 
 Expected Output :
 ```
