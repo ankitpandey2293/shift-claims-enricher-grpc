@@ -1,6 +1,7 @@
 # shift-claims-enricher-grpc
 
-gRPC server to enrich claims from secondary storage to cache
+gRPC server to enrich claims from secondary storage to cache.
+This service will be behind http2 load balancer either on nginx or envoy
 
 [1] Retrieve claim from DB on gRPC request
 [2] Enrich claim to Global Cache Store with key `orgID:CL:uniqueID` : {claimInformation}
